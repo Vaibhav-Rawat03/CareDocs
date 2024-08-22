@@ -3,14 +3,15 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
+    - name: Go to deployment folder
+      run: cd deployment
 
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1
@@ -36,7 +37,12 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Pull and run Docker container
+    - name: Pull and run Docker container frontend
       run: |
-        docker pull your-dockerhub-username/caredocs:latest
-        docker run -d -p 5173:5173 your-dockerhub-username/caredocs:latest
+        docker pull vaibhavrawat/caredocs-frontend:latest
+        docker run -d -p 5173:5173 vaibhavrawat/caredocs-frontend:latest
+
+    - name: Pull and run Docker container backend
+      run: |
+        docker pull vaibhavrawat/caredocs-backend:latest
+        docker run -d -p 3000:3000 vaibhavrawat/caredocs-backend:latest
