@@ -1,0 +1,162 @@
+.hospital-register-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f8f8;
+  flex-wrap: wrap; /* Allow wrapping to adjust layout on smaller screens */
+}
+
+.register-head {
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.register-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px;
+}
+
+.hospital-register-image {
+  flex: 1; /* Adjust this to fit more or less space */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  max-width: 100%; /* Prevent image from overflowing */
+  padding: 10px; /* Add padding to avoid touching edges */
+}
+
+.hospital-register-image img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  margin-top: -50px; /* Adjust margin-top as needed */
+  background: transparent;
+}
+
+.register-form-container {
+  flex: 1;
+  padding: 20px; /* Adjust padding as needed */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px; /* Space between image and form */
+}
+
+.register-form {
+  max-width: 400px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px; /* Add padding for spacing inside the form */
+  background-color: #ffffff; /* White background for the form */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.register-info h2 {
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center; /* Center align the heading */
+  position: relative;
+  right: 180px;
+}
+
+.form-group {
+  margin-bottom: 10px; /* Adjust margin-bottom as needed */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+}
+
+.form-group2 {
+  color: rgb(121, 121, 121);
+  padding: 5px;
+  margin: 20px 0;
+  display: flex;
+  gap: 20%;
+}
+
+.form-group2 label {
+  font-weight: 600;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: rgb(121, 121, 121);
+}
+
+.form-group label input[type="checkbox"] {
+  -webkit-appearance: none;
+  width: 20px; /* Adjust size of the checkbox */
+  height: 20px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.form-group label input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.form-group label input[type="checkbox"]::after {
+  content: "\2713"; /* Unicode character for checkmark */
+  font-size: 16px; /* Adjust size of the checkmark */
+  color: #fff; /* White color for the checkmark */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.form-group label input[type="checkbox"]:checked::after {
+  visibility: visible;
+}
+
+.register-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px; /* Add margin top for spacing */
+}
+
+.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+@media (max-width:768px) {
+  .register-content {
+      display: none;
+  }
+
+  .hospital-register-container {
+    padding: 50px;
+  }
+
+  .register-form-container {
+    padding: 0px;
+  }
+}

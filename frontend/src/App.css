@@ -1,0 +1,40 @@
+/* 
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Added styles for the footer visibility
+.footer {
+  background-color: rgb(130, 98, 235);
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1; /* Initially hide the footer */
+  /* transition: z-index 0.3s ease; Smooth transition for z-index */
+/* } */
+
+/* .footer.visible {
+  z-index: 1; /* Show the footer when it has the .visible class */
+/* }   */

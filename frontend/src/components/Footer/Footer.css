@@ -1,0 +1,119 @@
+/* Reset default margin and padding */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure body takes full height of viewport */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  background-color: rgb(28, 93, 115);
+  width: 100%;
+  display: flex; /* Wrap footer content in flexbox */
+  flex-direction: column; /* Ensure footer items stack vertically if needed */
+  padding: 2rem; /* Add some padding for spacing */
+  z-index: -1; /* Keep footer behind content by default */
+  transition: z-index 0.3s ease; /* Smooth transition for z-index */
+}
+
+.footer.visible {
+  z-index: 1; /* Show the footer when it has the .visible class */
+}
+
+.section__padding {
+  padding: 8rem 0; /* Adjust padding if needed */
+}
+
+.sb__footer {
+  display: flex; /* Wrap footer content in another flexbox */
+  flex-direction: column; /* Ensure footer items stack vertically if needed */
+  align-items: center; /* Center align items horizontally */
+}
+
+.sb__footer-links {
+  width: 100%; /* Full width for footer links */
+  display: flex; /* Flexbox for the links section */
+  justify-content: space-between; /* Distribute content evenly */
+  flex-wrap: wrap; /* Allow wrapping if content overflows */
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.sb__footer-links_div {
+  flex: 1 1 200px; /* Flex items grow and shrink as needed */
+  margin: 1rem; /* Maintain some margin between sections */
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+a {
+  color: rgb(175, 175, 179);
+  text-decoration: none;
+}
+
+.socialmedia {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center social media icons */
+}
+
+.socialmedia img {
+  width: 30px;
+  margin: 0 0.5rem; /* Space between social media icons */
+}
+
+.sb__footer-links_div h4 {
+  font-size: 15px;
+  line-height: 17px;
+  margin-bottom: 0.9rem;
+}
+
+.sb__footer-links_div p {
+  font-size: 12px;
+  line-height: 15px;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.sb__footer-below {
+  width: 100%; /* Full width for below section */
+  display: flex;
+  justify-content: center; /* Center the below content */
+  align-items: center; /* Center items vertically */
+  flex-direction: column; /* Stack below items vertically */
+}
+
+.sb__footer-below-links {
+  display: flex;
+  justify-content: center; /* Center the below links */
+  flex-wrap: wrap; /* Allow wrapping if content overflows */
+  margin-top: 1rem;
+}
+
+.sb__footer-below-links p {
+  font-size: 13px;
+  line-height: 15px;
+  margin: 0.5rem 1rem; /* Add spacing between items */
+  color: rgb(206, 206, 206);
+  text-align: center; /* Center align text */
+}
+
+hr {
+  width: 100%; /* Full width for the horizontal rule */
+  border-color: white !important;
+  margin: 1rem 0;
+}
+
+.sb__footer-copyright p {
+  font-size: 13px;
+  line-height: 15px;
+  color: rgb(255, 255, 255);
+  text-align: center; /* Center align text */
+  margin-top: 1rem;
+}
