@@ -4,3 +4,4 @@
 /deployment/.terraform
 /deployment/.terraform.lock.hcl
 /deployment/terraform*
+Connect.pem
