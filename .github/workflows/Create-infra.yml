@@ -1,45 +1,48 @@
-  ---
-  name: CI/CD Pipeline
-  on:
-    push:
-      branches:
-        - main
-  jobs:
-    deploy:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: Set up Terraform
-          uses: hashicorp/setup-terraform@v1
-          with:
-            terraform_version: 1.0.0
-        - name: Configure AWS credentials
-          uses: aws-actions/configure-aws-credentials@v1
-          with:
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: ap-south-1
-        - name: Terraform Init
-          run: terraform init
-          working-directory: ./deployment
-        - name: Terraform Apply
-          run: terraform apply -auto-approve
-          working-directory: ./deployment
-        - name: Get EC2 Public IP
-          id: ec2_public_ip
-          run: |
-            echo "::set-output name=public_ip::$(terraform output -raw public_ip)"
-        working-directory: ./deployment  
-        - name: Doenload ssh client
-          run: sudo apt-get install -y openssh-client
+---
+name: CI/CD Pipeline
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.0
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ./deployment
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        working-directory: ./deployment
+      - name: Get EC2 Public IP
+        id: ec2_public_ip
+        run: |
+          echo "public_ip=$(terraform output -raw public_ip)" >> $GITHUB_OUTPUT
+        working-directory: ./deployment
+      - name: Install SSH client
+        run: sudo apt-get install -y openssh-client
+      - name: Connect to EC2 and run containers
+        env:
+          EC2_PUBLIC_IP: ${{ steps.ec2_public_ip.outputs.public_ip }}
+        run: >
+          echo "${{ secrets.EC2_SSH_KEY }}" > /tmp/ssh_key
 
-        - name: Connect to EC2 and run container
-          run: |
-            echo "${{ secrets.EC2_SSH_KEY }}" > /tmp/ssh_key
-            chmod 400 /tmp/ssh_key
-            ssh -o StrictHostKeyChecking=no -i /path/to/private/key ubuntu@ "
+          chmod 400 /tmp/ssh_key
+
+          ssh -o StrictHostKeyChecking=no -i /tmp/ssh_key ubuntu@$EC2_PUBLIC_IP "
             docker pull vaibhavrawat/caredocs-frontend:latest
             docker run -d -p 5173:5173 vaibhavrawat/caredocs-frontend:latest
             docker pull vaibhavrawat/caredocs-backend:latest
             docker run -d -p 3000:3000 vaibhavrawat/caredocs-backend:latest
-            "
+          "
