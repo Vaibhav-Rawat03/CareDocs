@@ -29,21 +29,19 @@ jobs:
         id: ec2_public_ip
         run: |
           public_ip=$(terraform output -raw public_ip)
-          echo "public_ip=$public_ip" >> $GITHUB_ENV
+          echo "public_ip=$public_ip" >> $GITHUB_OUTPUT
         working-directory: ./deployment
       - name: Install SSH client
         run: sudo apt-get install -y openssh-client
-      - name: Connect to EC2 and run containers
-        env:
-          EC2_PUBLIC_IP: ${{ steps.ec2_public_ip.outputs.public_ip }}
+      - name: SSH into EC2 and Deploy Containers
         run: >
           echo "${{ secrets.EC2_SSH_KEY }}" > /tmp/ssh_key
 
-          chmod 400 /tmp/ssh_key
+          chmod 600 /tmp/ssh_key
 
-          ssh -o StrictHostKeyChecking=no -i /tmp/ssh_key ubuntu@$EC2_PUBLIC_IP "
-            docker pull vaibhavrawat/caredocs-frontend:latest
-            docker run -d -p 5173:5173 vaibhavrawat/caredocs-frontend:latest
-            docker pull vaibhavrawat/caredocs-backend:latest
+          ssh -o StrictHostKeyChecking=no -i /tmp/ssh_key ubuntu@${{ steps.ec2_public_ip.outputs.public_ip }} "
+            docker pull vaibhavrawat/caredocs-frontend:latest &&
+            docker run -d -p 5173:5173 vaibhavrawat/caredocs-frontend:latest &&
+            docker pull vaibhavrawat/caredocs-backend:latest &&
             docker run -d -p 3000:3000 vaibhavrawat/caredocs-backend:latest
           "
