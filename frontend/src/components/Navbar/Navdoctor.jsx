@@ -47,7 +47,7 @@ function Navdoctor() {
         <div className="right">
           <ul className="doc">
             <li>
-            <a href="https://upes-open.org/">CONTACT US</a>
+            <a href="https://www.instagram.com/__vaibhavvvvv_/">CONTACT US</a>
             </li>
             <li>
               <Link to={`/viewrecord`}>VIEW RECORDS</Link>

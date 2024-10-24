@@ -27,29 +27,29 @@ const Footer = () => {
           </div>
           <div className="sb__footer-links_div">
             <h4>Partners</h4>
-            <a href="https://upes-open.org/">
-              <p>UPES Open Community</p>
+            <a href="https://youtube.com/shorts/SXHMnicI6Pg?si=tKdFW0_OqnyLgllU">
+              <p>DevOps team</p>
             </a>
           </div>
           <div className="sb__footer-links_div">
             <h4>Feedback</h4>
-            <a href="https://upes-open.org/contact">
+            <a href="https://www.instagram.com/sanju_ghasal/">
               <p>Email</p>
             </a>
-            <a href="https://upes-open.org/contact">
+            <a href="https://www.instagram.com/wake_up_amit/">
               <p>Contact Number</p>
             </a>
           </div>
           <div className="sb__footer-links_div">
             <h4>Social</h4>
             <div className="socialmedia">
-              <a href="https://twitter.com/UPESDehradun/">
+              <a href="https://www.instagram.com/__vaibhavvvvv_/">
                 <img src={twitter} alt="twitterimage" />
               </a>
-              <a href="https://www.facebook.com/UPESddnuk/">
+              <a href="https://www.instagram.com/sanju_ghasal/">
                 <img src={insta} alt="fbimage" />
               </a>
-              <a href="https://www.linkedin.com/company/open-community/">
+              <a href="https://www.instagram.com/wake_up_amit/">
                 <img src={linkedin} alt="linkedinimage" />
               </a>
             </div>
@@ -62,14 +62,14 @@ const Footer = () => {
               @{new Date().getFullYear()} CodeInn. All rights reserved.
             </p>
           </div>
-          <div className="sb__footer-below-links">
+          {/* <div className="sb__footer-below-links">
             <a href="/terms">
               <div><p>Privacy</p></div>
             </a>
             <a href="/terms">
               <div><p>Security</p></div>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

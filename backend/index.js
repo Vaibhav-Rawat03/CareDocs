@@ -31,9 +31,25 @@ app.use(bodyParser.json({ limit: '15mb' }));
 app.use(bodyParser.urlencoded({ limit: '15mb', extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
+// app.use(cors({
+//     origin: 'http://localhost:5173', // Allow requests from this origin
+//     credentials: true // Enable credentials (cookies, authorization headers) cross-origin
+// },
+// {
+//   origin: 'http://192.168.29.143:5173/', // Allow requests from this origin
+//   credentials: true // Enable credentials (cookies, authorization headers) cross-origin
+// }));
 app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from this origin
-    credentials: true // Enable credentials (cookies, authorization headers) cross-origin
+  origin: function (origin, callback) {
+    const allowedOrigins = ['http://localhost:5173', 'http://192.168.117.180:5173'];
+    // If no origin (i.e., request is coming from the same origin or tools like Postman) or if the origin is in the allowed list, allow it
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 
 app.use('/', routes);
