@@ -1,5 +1,7 @@
 const mongoose=require('mongoose');
+const dotenv=require('dotenv');
 
+dotenv.config();
 // const connectToDb = async () => {
 //     try {
 //         await mongoose.connect("mongodb+srv://Contributors:kj0zL1RFxCurMsm0@cluster0.mzvwlgt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
@@ -11,7 +13,7 @@ const mongoose=require('mongoose');
 
 const connectToDb = async () => {
     try {
-        await mongoose.connect('mongodb+srv://Contributors:kj0zL1RFxCurMsm0@cluster0.mzvwlgt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+        await mongoose.connect(process.env.connectionString, {
             useNewUrlParser: true,
             useUnifiedTopology: true
           });

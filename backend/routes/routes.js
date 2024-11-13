@@ -324,11 +324,4 @@ router.get('/patient/doctors', async (req, res) => {
     }
 });
 
-
-
-
-
-
-
-
 module.exports = router
