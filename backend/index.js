@@ -39,18 +39,24 @@ app.use(cookieParser());
 //   origin: 'http://192.168.29.143:5173/', // Allow requests from this origin
 //   credentials: true // Enable credentials (cookies, authorization headers) cross-origin
 // }));
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     const allowedOrigins = ['http://localhost:5173', 'http://192.168.29.88:5173/', '0.0.0.0:0'];
+//     // If no origin (i.e., request is coming from the same origin or tools like Postman) or if the origin is in the allowed list, allow it
+//     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true
+// }));
+
 app.use(cors({
-  origin: function (origin, callback) {
-    const allowedOrigins = ['http://localhost:5173', 'http://192.168.29.88:5173/', '0.0.0.0'];
-    // If no origin (i.e., request is coming from the same origin or tools like Postman) or if the origin is in the allowed list, allow it
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
+  origin: '*', // Allows all origins
+  credentials: false // Credentials cannot be used with '*'
 }));
+
 
 app.use('/', routes);
 
