@@ -41,7 +41,7 @@ app.use(cookieParser());
 // }));
 app.use(cors({
   origin: function (origin, callback) {
-    const allowedOrigins = ['http://localhost:5173', 'http://192.168.117.180:5173'];
+    const allowedOrigins = ['http://localhost:5173', 'http://192.168.29.88:5173/', '0.0.0.0'];
     // If no origin (i.e., request is coming from the same origin or tools like Postman) or if the origin is in the allowed list, allow it
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
