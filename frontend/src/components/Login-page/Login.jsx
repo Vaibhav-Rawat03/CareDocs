@@ -24,7 +24,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    url="https://backend:3000"
+    url="http://backend:3000"
     try {
       const response = await fetch(`${url}/login`, {
         method: "POST",
