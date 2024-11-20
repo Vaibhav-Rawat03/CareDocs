@@ -41,7 +41,7 @@ app.use(cookieParser());
 // }));
 // app.use(cors({
 //   origin: function (origin, callback) {
-//     const allowedOrigins = ['http://localhost:5173', 'http://192.168.29.88:5173/', '0.0.0.0:0'];
+//     const allowedOrigins = ['http://localhost:5173'];
 //     // If no origin (i.e., request is coming from the same origin or tools like Postman) or if the origin is in the allowed list, allow it
 //     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
 //       callback(null, true);
@@ -53,9 +53,10 @@ app.use(cookieParser());
 // }));
 
 app.use(cors({
-  origin: '*', // Allows all origins
-  credentials: false // Credentials cannot be used with '*'
+  origin: ['http://localhost:5173', 'http://frontend:3000', 'http://backend:3000/login', 'http://localhost:5173'], // Frontend origins
+  credentials: true, // Enable cookies and authorization headers
 }));
+
 
 
 app.use('/', routes);
