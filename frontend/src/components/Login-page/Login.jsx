@@ -23,9 +23,10 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
+    url="https://backend:3000"
     try {
-      const response = await fetch("http://localhost:3000/login", {
+      const response = await fetch(`${url}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
