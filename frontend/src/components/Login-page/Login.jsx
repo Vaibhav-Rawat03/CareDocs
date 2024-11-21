@@ -24,7 +24,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const url="http://localhost:3000"
+    const url="http://3.90.226.33:3000"
     try {
       const response = await fetch(`${url}/login`, {
         method: "POST",
