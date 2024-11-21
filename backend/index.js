@@ -31,33 +31,28 @@ app.use(bodyParser.json({ limit: '15mb' }));
 app.use(bodyParser.urlencoded({ limit: '15mb', extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
-// app.use(cors({
-//     origin: 'http://localhost:5173', // Allow requests from this origin
-//     credentials: true // Enable credentials (cookies, authorization headers) cross-origin
-// },
-// {
-//   origin: 'http://192.168.29.143:5173/', // Allow requests from this origin
-//   credentials: true // Enable credentials (cookies, authorization headers) cross-origin
-// }));
-// app.use(cors({
-//   origin: function (origin, callback) {
-//     const allowedOrigins = ['http://localhost:5173'];
-//     // If no origin (i.e., request is coming from the same origin or tools like Postman) or if the origin is in the allowed list, allow it
-//     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true
-// }));
+
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://3.90.226.33:3000',
+  'http://3.90.226.33:5173'
+];
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://frontend:3000', 'http://backend:3000/login', 'http://localhost:5173'], // Frontend origins
-  credentials: true, // Enable cookies and authorization headers
+  origin: function (origin, callback) {
+    // Allow requests with no origin (e.g., Postman) or check against allowed origins
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Enable credentials (cookies, authorization headers)
 }));
 
-
+// Handle preflight requests
+app.options('*', cors());
 
 app.use('/', routes);
 
