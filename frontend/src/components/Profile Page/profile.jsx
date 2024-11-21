@@ -45,7 +45,7 @@ const Profile = () => {
 
   const logout = async () => {
     try {
-      await axios.get("http://localhost:3000/logout");
+      await axios.get("http://3.90.226.33:3000/logout");
     } catch (error) {
       console.log(error);
     } finally {
@@ -72,7 +72,7 @@ const Profile = () => {
       if (Object.keys(updatedFields).length > 0) {
 
         const response = await axios.put(
-          `http://localhost:3000/user/${user.email}`,
+          `http://3.90.226.33:3000/user/${user.email}`,
           updatedFields
         );
         setUser(response.data);
