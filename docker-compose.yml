@@ -1,0 +1,26 @@
+version: '2.35'
+
+services:
+  backend:
+    image: vaibhavrawat/caredocs-backend
+    container_name: backend-app
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  frontend:
+    image: vaibhavrawat/caredocs-frontend
+    container_name: frontend-app
+    ports:
+      - "5173:5173"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge

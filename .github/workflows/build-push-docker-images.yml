@@ -33,7 +33,9 @@ jobs:
         working-directory: frontend
 
       - name: Build Docker image for Frontend
-        run: docker build -t vaibhavrawat/caredocs-frontend:build-${GITHUB_RUN_NUMBER} .
+        run: |
+          docker build -t vaibhavrawat/caredocs-frontend:build-${GITHUB_RUN_NUMBER} .
+          docker tag vaibhavrawat/caredocs-frontend:build-${GITHUB_RUN_NUMBER} vaibhavrawat/caredocs-frontend:latest
         working-directory: frontend
 
       - name: Push Docker image for Frontend
@@ -54,7 +56,9 @@ jobs:
           echo 'connectionString="mongodb+srv://Contributors:kj0zL1RFxCurMsm0@cluster0.mzvwlgt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"' > backend/.env
 
       - name: Build Docker image for Backend
-        run: docker build -t vaibhavrawat/caredocs-backend:build-${GITHUB_RUN_NUMBER} .
+        run: |
+          docker build -t vaibhavrawat/caredocs-backend:build-${GITHUB_RUN_NUMBER} .
+          docker tag vaibhavrawat/caredocs-backend:build-${GITHUB_RUN_NUMBER} vaibhavrawat/caredocs-backend:latest
         working-directory: backend
 
       - name: Push Docker image for Backend
