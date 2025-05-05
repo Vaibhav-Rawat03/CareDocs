@@ -33,18 +33,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 
-// const allowedOrigins = [                  
-//   'http://localhost:5173',
-//   'http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000',
-//   'http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:5173'
-// ];
+const allowedOrigins = [
+  'http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:5173',
+  'http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000',
+];
 
 app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (e.g., Postman) or check against allowed origins
-    callback(null, true);
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
   },
-  credentials: true, // if true Enable credentials (cookies, authorization headers)
+  credentials: true, // Enable credentials (cookies, authorization headers)
 }));
 
 // Handle preflight requests
