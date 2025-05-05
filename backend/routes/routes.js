@@ -324,4 +324,6 @@ router.get('/patient/doctors', async (req, res) => {
     }
 });
 
+router.get('/health', (req,res) => res.send('healthy'))
+
 module.exports = router
