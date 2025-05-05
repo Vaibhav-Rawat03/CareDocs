@@ -37,20 +37,34 @@ const allowedOrigins = [
   'http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com'
 ];
 
-app.use(cors({
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // Allow requests with no origin (e.g., Postman) or check against allowed origins
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true, // Enable credentials (cookies, authorization headers)
+// }));
+
+// // Handle preflight requests
+// app.options('*', cors());
+
+const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (e.g., Postman) or check against allowed origins
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin.toLowerCase())) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true, // Enable credentials (cookies, authorization headers)
-}));
+  credentials: true,
+};
 
-// Handle preflight requests
-app.options('*', cors());
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // <-- Use the SAME config
 
 app.use('/', routes);
 
