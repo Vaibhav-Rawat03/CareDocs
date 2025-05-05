@@ -39,7 +39,9 @@ jobs:
         working-directory: frontend
 
       - name: Push Docker image for Frontend
-        run: docker push vaibhavrawat/caredocs-frontend:build-${GITHUB_RUN_NUMBER}
+        run: |
+          docker push vaibhavrawat/caredocs-frontend:build-${GITHUB_RUN_NUMBER}
+          docker push vaibhavrawat/caredocs-frontend:latest
 
       # Build and push backend
       - name: Set up Node.js for Backend
@@ -62,4 +64,6 @@ jobs:
         working-directory: backend
 
       - name: Push Docker image for Backend
-        run: docker push vaibhavrawat/caredocs-backend:build-${GITHUB_RUN_NUMBER}
+        run: |
+          docker push vaibhavrawat/caredocs-backend:build-${GITHUB_RUN_NUMBER}
+          docker push vaibhavrawat/caredocs-frontend:latest
