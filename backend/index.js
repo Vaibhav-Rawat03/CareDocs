@@ -35,8 +35,8 @@ app.use(cookieParser());
 
 // const allowedOrigins = [                  
 //   'http://localhost:5173',
-//   'http://3.90.226.33:3000',
-//   'http://3.90.226.33:5173'
+//   'http://backend-app:3000',
+//   'http://backend-app:5173'
 // ];
 
 app.use(cors({

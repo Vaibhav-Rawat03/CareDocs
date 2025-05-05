@@ -14,7 +14,7 @@ const PatientRecords = () => {
     const fetchRecords = async () => {
       try {
         const response = await axios.get(
-          `http://3.90.226.333000/getrecords/${username}`
+          `http://backend-app3000/getrecords/${username}`
         );
         setRecords(response.data);
         setLoading(false);

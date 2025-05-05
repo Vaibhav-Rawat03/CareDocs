@@ -72,7 +72,7 @@ const Profile = () => {
       if (Object.keys(updatedFields).length > 0) {
 
         const response = await axios.put(
-          `http://3.90.226.33:3000/user/${user.email}`,
+          `http://backend-app:3000/user/${user.email}`,
           updatedFields
         );
         setUser(response.data);
