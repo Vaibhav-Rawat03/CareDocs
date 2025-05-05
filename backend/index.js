@@ -34,7 +34,7 @@ app.use(cookieParser());
 
 
 const allowedOrigins = [
-  'http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com'
+  'http://care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com'
 ];
 
 // app.use(cors({
