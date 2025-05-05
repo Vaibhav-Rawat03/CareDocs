@@ -66,4 +66,4 @@ jobs:
       - name: Push Docker image for Backend
         run: |
           docker push vaibhavrawat/caredocs-backend:build-${GITHUB_RUN_NUMBER}
-          docker push vaibhavrawat/caredocs-frontend:latest
+          docker push vaibhavrawat/caredocs-backend:latest
