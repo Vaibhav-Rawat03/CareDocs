@@ -35,8 +35,8 @@ app.use(cookieParser());
 
 // const allowedOrigins = [                  
 //   'http://localhost:5173',
-//   'http://backend-app:3000',
-//   'http://backend-app:5173'
+//   'http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000',
+//   'http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:5173'
 // ];
 
 app.use(cors({

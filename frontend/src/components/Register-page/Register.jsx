@@ -61,7 +61,7 @@ const Register = () => {
       setErrors(validationErrors);
     } else {
       try {
-        const response = await fetch("http://backend-app:3000/signup", {
+        const response = await fetch("http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

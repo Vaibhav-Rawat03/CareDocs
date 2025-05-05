@@ -14,7 +14,7 @@ const PatientRecords = () => {
     const fetchRecords = async () => {
       try {
         const response = await axios.get(
-          `http://backend-app3000/getrecords/${username}`
+          `http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com3000/getrecords/${username}`
         );
         setRecords(response.data);
         setLoading(false);

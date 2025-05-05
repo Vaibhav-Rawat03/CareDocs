@@ -21,7 +21,7 @@ const Dashboard = () => {
     };
 
     try {
-      const response = await fetch("http://backend-app:3000/upload", {
+      const response = await fetch("http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000/upload", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -11,7 +11,7 @@ const ViewRecord = () => {
   useEffect(() => {
     const fetchPatientData = async () => {
       try {
-        const response = await axios.get("http://backend-app:3000/getrecords", {
+        const response = await axios.get("http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000/getrecords", {
           withCredentials: true,
         });
         // console.log(response.data);
