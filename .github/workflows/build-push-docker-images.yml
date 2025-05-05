@@ -33,11 +33,11 @@ jobs:
         working-directory: frontend
 
       - name: Build Docker image for Frontend
-        run: docker build -t vaibhavrawat/caredocs-frontend:latest .
+        run: docker build -t -t vaibhavrawat/caredocs-frontend:build-${GITHUB_RUN_NUMBER} .
         working-directory: frontend
 
       - name: Push Docker image for Frontend
-        run: docker push vaibhavrawat/caredocs-frontend:latest
+        run: docker push vaibhavrawat/caredocs-frontend:build-${GITHUB_RUN_NUMBER}
 
       # Build and push backend
       - name: Set up Node.js for Backend
@@ -48,6 +48,10 @@ jobs:
       - name: Install dependencies for Backend
         run: npm install
         working-directory: backend
+
+      - name: Inject env for connection
+        run: |
+          echo 'connectionString="mongodb+srv://Contributors:kj0zL1RFxCurMsm0@cluster0.mzvwlgt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"' > backend/.env
 
       - name: Build Docker image for Backend
         run: docker build -t vaibhavrawat/caredocs-backend:latest .
