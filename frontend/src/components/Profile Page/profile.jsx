@@ -15,7 +15,7 @@ const Profile = () => {
     const fetchUserData = async () => {
 
       try {
-        const response = await axios.get("http://3.90.226.33:3000/getdata", {
+        const response = await axios.get("http://backend-app:3000/getdata", {
           withCredentials: true,
         });
         // console.log(response.data)
@@ -45,7 +45,7 @@ const Profile = () => {
 
   const logout = async () => {
     try {
-      await axios.get("http://3.90.226.33:3000/logout");
+      await axios.get("http://backend-app:3000/logout");
     } catch (error) {
       console.log(error);
     } finally {

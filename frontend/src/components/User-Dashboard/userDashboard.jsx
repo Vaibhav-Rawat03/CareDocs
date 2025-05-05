@@ -21,7 +21,7 @@ const Dashboard = () => {
     };
 
     try {
-      const response = await fetch("http://3.90.226.33:3000/upload", {
+      const response = await fetch("http://backend-app:3000/upload", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
