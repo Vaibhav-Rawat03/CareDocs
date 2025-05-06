@@ -68,7 +68,7 @@ const allowedOrigins = [
 // };
 
 const corsOptions = {
-  origin: true, // This allows all origins
+  origin: '*', // This allows all origins
   credentials: true, // Allow cookies and credentials
 };
 
