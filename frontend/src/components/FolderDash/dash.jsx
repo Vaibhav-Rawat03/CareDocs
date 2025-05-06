@@ -10,7 +10,7 @@ const Dash = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get("backend-app/getdata", {
+                const response = await axios.get("http://13.235.245.211:3000/getdata", {
                     withCredentials: true, // Ensure cookies are sent
                 });
                 setUser(response.data);
