@@ -71,7 +71,7 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: '*', // This allows all origins
-  credentials: true, // Allow cookies and credentials
+  credentials: false, // Allow cookies and credentials
 };
 
 app.use(cors(corsOptions));
