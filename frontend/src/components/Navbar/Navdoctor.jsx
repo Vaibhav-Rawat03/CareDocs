@@ -20,7 +20,7 @@ function Navdoctor() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://13.235.245.211:3000/getdata", {
+        const response = await axios.get("backend-app/getdata", {
           withCredentials: true,
         });
         // console.log(response.data)
