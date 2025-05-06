@@ -3,7 +3,7 @@ version: '2.35'
 services:
   backend:
     image: vaibhavrawat/caredocs-backend
-    container_name: Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com
+    container_name: backend-app
     ports:
       - "3000:3000"
     networks:
