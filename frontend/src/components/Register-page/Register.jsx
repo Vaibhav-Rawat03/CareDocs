@@ -61,7 +61,7 @@ const Register = () => {
       setErrors(validationErrors);
     } else {
       try {
-        const response = await fetch("http://65.1.93.221:3000/signup", {
+        const response = await fetch("http://localhost:3000/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
