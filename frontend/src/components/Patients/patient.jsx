@@ -11,7 +11,7 @@ const ViewDoctors = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await axios.get("https://caredocs-z1ob.onrender.com/patient/doctors", {
+        const response = await axios.get("http://65.1.93.221:3000/patient/doctors", {
           withCredentials: true,
         });
         setDoctors(response.data);

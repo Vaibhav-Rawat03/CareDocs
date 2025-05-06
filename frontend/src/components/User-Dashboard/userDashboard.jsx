@@ -21,7 +21,7 @@ const Dashboard = () => {
     };
 
     try {
-      const response = await fetch("https://caredocs-z1ob.onrender.com/upload", {
+      const response = await fetch("http://65.1.93.221:3000/upload", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

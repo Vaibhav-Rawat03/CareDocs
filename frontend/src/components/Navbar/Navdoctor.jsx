@@ -20,7 +20,7 @@ function Navdoctor() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("https://caredocs-z1ob.onrender.com/getdata", {
+        const response = await axios.get("http://65.1.93.221:3000/getdata", {
           withCredentials: true,
         });
         // console.log(response.data)
