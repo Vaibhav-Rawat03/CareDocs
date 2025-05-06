@@ -56,15 +56,20 @@ const allowedOrigins = [
 // // Handle preflight requests
 // app.options('*', cors());
 
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin.toLowerCase())) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// };
+
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin.toLowerCase())) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
+  origin: true, // This allows all origins
+  credentials: true, // Allow cookies and credentials
 };
 
 app.use(cors(corsOptions));
