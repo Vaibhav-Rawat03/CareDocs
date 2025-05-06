@@ -11,7 +11,7 @@ const ViewRecord = () => {
   useEffect(() => {
     const fetchPatientData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/getrecords", {
+        const response = await axios.get("http://65.1.93.221:3000/getrecords", {
           withCredentials: true,
         });
         // console.log(response.data);
