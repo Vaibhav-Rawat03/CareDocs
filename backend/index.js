@@ -38,7 +38,9 @@ const allowedOrigins = [
   'http://care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com',
   'http://care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000',
   'http://care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:80',
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'http://13.235.245.211:5173',
+  'http://13.235.245.211:3000'
 ];
 
 // app.use(cors({
