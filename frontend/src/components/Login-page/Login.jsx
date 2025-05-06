@@ -24,7 +24,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const url="http://13.235.245.211:3000"
+    const url="https://caredocs-z1ob.onrender.com"
     try {
       const response = await fetch(`${url}/login`, {
         method: "POST",

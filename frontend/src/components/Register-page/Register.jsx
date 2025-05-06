@@ -61,7 +61,7 @@ const Register = () => {
       setErrors(validationErrors);
     } else {
       try {
-        const response = await fetch("http://13.235.245.211:3000/signup", {
+        const response = await fetch("https://caredocs-z1ob.onrender.com/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
