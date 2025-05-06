@@ -4,8 +4,8 @@ services:
   backend:
     image: vaibhavrawat/caredocs-backend
     container_name: backend-app
-    ports:
-      - "3000:3000"
+    # ports:
+    #   - "3000:3000"
     networks:
       - app-network
     restart: unless-stopped
@@ -13,8 +13,8 @@ services:
   frontend:
     image: vaibhavrawat/caredocs-frontend
     container_name: frontend-app
-    ports:
-      - "5173:5173"
+    # ports:
+    #   - "5173:5173"
     networks:
       - app-network
     depends_on:
@@ -23,4 +23,4 @@ services:
 
 networks:
   app-network:
-    driver: bridge
+    driver: host
