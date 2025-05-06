@@ -24,7 +24,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const url="http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000"
+    const url="http://13.235.245.211:3000"
     try {
       const response = await fetch(`${url}/login`, {
         method: "POST",

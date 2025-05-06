@@ -15,7 +15,7 @@ const Profile = () => {
     const fetchUserData = async () => {
 
       try {
-        const response = await axios.get("http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000/getdata", {
+        const response = await axios.get("http://13.235.245.211:3000/getdata", {
           withCredentials: true,
         });
         // console.log(response.data)
@@ -45,7 +45,7 @@ const Profile = () => {
 
   const logout = async () => {
     try {
-      await axios.get("http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000/logout");
+      await axios.get("http://13.235.245.211:3000/logout");
     } catch (error) {
       console.log(error);
     } finally {
@@ -72,7 +72,7 @@ const Profile = () => {
       if (Object.keys(updatedFields).length > 0) {
 
         const response = await axios.put(
-          `http://Care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000/user/${user.email}`,
+          `http://13.235.245.211:3000/user/${user.email}`,
           updatedFields
         );
         setUser(response.data);
