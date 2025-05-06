@@ -37,6 +37,7 @@ const allowedOrigins = [
   'http://care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:5173',
   'http://care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com',
   'http://care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:3000',
+  'http://care-docs-lb-1246403747.ap-south-1.elb.amazonaws.com:80',
   'http://localhost:5173'
 ];
 
